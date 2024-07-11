@@ -38,13 +38,13 @@ ll comb(int n , int k)
 ll get(ll n , ll d)
 {
     ll ans = 0;
-    if(__builtin_popcount(n) == d) ans++;
+    if(__builtin_popcountll(n) == d) ans++;
     int on_bits = 0 ;
     for(int i = 0 ; (1ll << i) <= n ; i++) if(bit(n , i))
     {
         on_bits ++;
         ll mask = n ^ (1ll << i);
-        ans += comb(i - 0 , d - (__builtin_popcount(n) - on_bits));
+        ans += comb(i - 0 , d - (__builtin_popcountll(n) - on_bits));
     }
     return ans;
 }
@@ -67,6 +67,8 @@ void sol()
         }
         else l = mid + 1;
     }
+    //for(int i = 50 ; i >= 0 ; i--) cout << bit(ans , i);
+    //cout << ' ';
     cout << ans;
 }
 
